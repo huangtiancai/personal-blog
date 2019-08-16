@@ -4,15 +4,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
 	http://www.springframework.org/schema/mvc
-	http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 	http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
         http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+       
 	
     <!-- springmvc.xml配置：处理器映射器  适配器  视图解析器  Handler -->
     
@@ -20,14 +21,12 @@
     	 2.配置注解驱动
     	 3.配置视图解析器
      -->
-    
 	<!-- 1.开启注解扫描包 -->
     <context:component-scan base-package="com.htc"/>
-    
-    
+ 
 	<!-- 2.注解驱动 -->
 	<mvc:annotation-driven/>
-
+	
     <!-- 3.视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
    		<!-- 配置逻辑视图的前缀 -->
@@ -37,22 +36,25 @@
     </bean>
     
     <!-- 4.上传文件 -->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!--设置上传最大尺寸为50MB-->
+<!--     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        设置上传最大尺寸为50MB
         <property name="maxUploadSizePerFile" value="52428800"/>
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="resolveLazily" value="true"/>
-    </bean>
+    </bean> -->
 	
 	
 	<!-- 5.静态资源映射 -->
-    <mvc:resources mapping="/css/**" location="/resource/assets/css/"></mvc:resources>
+	<!-- location:实际路径：		<link rel="stylesheet" href="/resource/assets/css/style.css">
+		 mapping:页面引入的路径		<link rel="stylesheet" href="/css/style.css">
+	 -->
+<!-- 	<mvc:resources mapping="/css/**" location="/resource/assets/css/"></mvc:resources>
     <mvc:resources mapping="/js/**" location="/resource/assets/js/"></mvc:resources>
     <mvc:resources mapping="/img/**" location="/resource/assets/img/"></mvc:resources>
-    <mvc:resources mapping="/plugin/**" location="/resource/assets/plugin/"></mvc:resources>
-    
+    <mvc:resources mapping="/plugin/**" location="/resource/assets/plugin/"></mvc:resources> -->
+	
 	<!-- 6.配置拦截器 -->
-	<mvc:interceptors>
+<!-- 	<mvc:interceptors>
 		<mvc:interceptor>
             <mvc:mapping path="/**"/>
             <bean class="com.htc.interceptor.HomeResourceInterceptor"/>
@@ -66,7 +68,7 @@
             <bean class="com.htc.interceptor.SecurityInterceptor"/>
         </mvc:interceptor>
 	</mvc:interceptors>
-   
-    
+	 -->
+
 	
 </beans>

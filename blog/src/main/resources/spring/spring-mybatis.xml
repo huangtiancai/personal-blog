@@ -6,19 +6,20 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-						http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 						http://www.springframework.org/schema/tx
-						http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+						http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 						http://www.springframework.org/schema/context
-						http://www.springframework.org/schema/context/spring-context-4.2.xsd
+						http://www.springframework.org/schema/context/spring-context-4.0.xsd
 						http://www.springframework.org/schema/mvc
-						http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+						http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 						http://www.springframework.org/schema/aop
-						http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+						http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">					
 	<!-- 数据源(数据库连接池)  
     	   配置SqlSessionFactory-创建会话工厂  
     	   配置mapper文件扫描器 
     -->
+    
     
     <!-- 2.整合mybatis部分 -->
     
@@ -64,12 +65,13 @@
     	
     </bean>
 
+
 	<!-- 配置SqlSessionFactory-创建会话工厂 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 为会话注入数据源 -->
 		<property name="dataSource" ref="dataSource"/>
-		<!-- 加载mybatis的全局配置文件 -->
-		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+		<!-- 加载mybatis的全局配置文件 -->                            
+		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
 		<!--mapper.xml所在位置-->
         <property name="mapperLocations" value="classpath*:mapper/*Mapper.xml" />
         <!--指定需要使用别名的PO类所在的包-->
@@ -97,6 +99,7 @@
     
     
     <!-- 通知 -->
+    
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="save*" propagation="REQUIRED"/>
@@ -109,9 +112,9 @@
         </tx:attributes>
     </tx:advice>
 
-    <aop:config>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.htc.service.impl.*.*(..))"/>
-    </aop:config>
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.htc.service.impl.*.*(..))"/>
+	</aop:config>
 	
     
 </beans>
