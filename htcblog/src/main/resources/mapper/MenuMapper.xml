@@ -20,7 +20,7 @@
   
   
   <!--获得菜单列表-->
-  <select id="listMenu" resultType="Menu">
+  <select id="listMenu" resultType="com.htc.Menu">
   	SELECT * FROM <include refid="tb"/>
     ORDER BY menu_order DESC, menu_id ASC
   </select>

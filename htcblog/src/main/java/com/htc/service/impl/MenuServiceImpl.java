@@ -20,7 +20,7 @@ import com.htc.service.MenuService;
 */
 @Service
 public class MenuServiceImpl implements MenuService {
-	@Autowired
+	@Autowired(required = false)
 	private MenuMapper menuMapper;
 	
 	@Override
