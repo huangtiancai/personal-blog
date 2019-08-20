@@ -30,7 +30,7 @@
   
   
   
-  <sql id="Example_Where_Clause">
+ <!--  <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
         <if test="criteria.valid">
@@ -245,5 +245,5 @@
       category_order = #{categoryOrder,jdbcType=INTEGER},
       category_icon = #{categoryIcon,jdbcType=VARCHAR}
     where category_id = #{categoryId,jdbcType=INTEGER}
-  </update>
-</mapper>
+  </update>-->
+</mapper> 
