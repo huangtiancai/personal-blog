@@ -13,7 +13,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.htc.entity.Category;
 import com.htc.entity.Menu;
+import com.htc.service.CategoryService;
 import com.htc.service.MenuService;
 
 /**  
@@ -28,6 +30,11 @@ public class HomeResourceInterceptor implements HandlerInterceptor{
 	@Autowired
 	private MenuService menuService;
 	
+	@Autowired
+	private CategoryService categoryService;
+	
+	
+	
 	/**
      * 在请求处理之前执行，该方法主要是用于准备资源数据的，然后可以把它们当做请求属性放到WebRequest中
      */
@@ -36,10 +43,13 @@ public class HomeResourceInterceptor implements HandlerInterceptor{
 		System.out.println("进入拦截器！");
 		// 菜单显示 
 		List<Menu> menuList = menuService.ListMenu();
-		System.out.println(menuList);//null
-
-		
 		request.setAttribute("menuList", menuList);
+		
+		
+		List<Category> categoryList = categoryService.listCategory();
+		System.out.println(categoryList.get(2).getCategoryName());
+		
+        request.setAttribute("allCategoryList", categoryList);
 		
 		return true;
 	}

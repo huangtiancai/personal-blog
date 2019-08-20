@@ -1,7 +1,15 @@
 package com.htc.entity;
 
-public class Category {
-    private Integer categoryId;
+import java.io.Serializable;
+
+import lombok.Data;
+
+@Data
+public class Category implements Serializable{
+
+	private static final long serialVersionUID = -1560431878515981462L;
+
+	private Integer categoryId;
 
     private Integer categoryPid;
 

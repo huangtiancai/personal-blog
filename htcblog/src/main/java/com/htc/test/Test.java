@@ -3,19 +3,12 @@
  */
 package com.htc.test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Properties;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.htc.entity.Menu;
 import com.htc.mapper.MenuMapper;
 import com.htc.utils.DruidUtils;

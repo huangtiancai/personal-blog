@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 */
 @Controller
 public class HelloController {
+	
+	
+	
 	@RequestMapping("admin")
 	public String hello(){
 		System.out.println("进入hello方法！");

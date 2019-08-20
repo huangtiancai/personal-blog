@@ -20,13 +20,12 @@ import com.htc.service.MenuService;
 */
 @Service
 public class MenuServiceImpl implements MenuService {
-	@Autowired(required = false)
+	@Autowired
 	private MenuMapper menuMapper;
 	
 	@Override
 	public List<Menu> ListMenu() {
 		List<Menu> menuList = menuMapper.listMenu();
-		System.out.println(menuList);
 		return menuList;
 	}
 

@@ -1,9 +1,15 @@
 package com.htc.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
-    private Integer userId;
+import lombok.Data;
+@Data
+public class User implements Serializable{
+
+	private static final long serialVersionUID = -6472438402555708519L;
+
+	private Integer userId;
 
     private String userName;
 

@@ -48,10 +48,10 @@
             <mvc:mapping path="/admin"/>
             <bean class="com.htc.interceptor.SecurityInterceptor"/>
         </mvc:interceptor>
-<!--       <mvc:interceptor>
+       <mvc:interceptor>
             <mvc:mapping path="/admin/**"/>
             <bean class="com.htc.interceptor.SecurityInterceptor"/>
-        </mvc:interceptor> -->
+        </mvc:interceptor>
 
     </mvc:interceptors>
    

@@ -5,8 +5,6 @@ package com.htc.utils;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.SQLException;

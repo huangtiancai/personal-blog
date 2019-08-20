@@ -9,6 +9,27 @@
     <result column="category_order" jdbcType="INTEGER" property="categoryOrder" />
     <result column="category_icon" jdbcType="VARCHAR" property="categoryIcon" />
   </resultMap>
+  
+  <!-- sql片段 -->
+  <sql id="Base_Column_List">
+    category_id, category_pid, category_name, category_description, category_order, category_icon
+  </sql>
+  
+  <!-- 表名-sql片段 -->
+  <sql id="tb">category</sql>
+  
+  
+  <!--获得分类列表-->
+  <!-- SELECT * FROM category; -->
+  <select id="listCategory" resultMap="BaseResultMap">
+  	SELECT
+  	<include refid="Base_Column_List"/>
+  	FROM <include refid="tb"/>
+    order by category_order desc,category_id asc
+  </select>
+  
+  
+  
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
